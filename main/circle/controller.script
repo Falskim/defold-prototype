@@ -1,0 +1,49 @@
+function init(self)
+	-- Untuk mereset tempat spawn
+	self.initial_position = go.get_position() 
+	self.drop_position = nil
+
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("check") then
+		self.drop_position = go.get_position()
+		
+		-- Lokasi pengecekan
+		if self.drop_position.y < 300 then
+			msg.post("/controller#main", "test",{url = go.get_id()})
+		else
+			msg.post("#", "reset")
+		end
+
+	elseif message_id == hash("correct") then
+		-- Apabila hasil pengecekan sama
+		print("yay")
+		go.delete()
+
+	elseif message_id == hash("reset") then
+		-- Mereset posisi	
+		print(msg.url(), self.initial_position)
+		go.set_position(vmath.vector3(self.initial_position.x, self.initial_position.y, self.initial_position.z))
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

@@ -1,0 +1,27 @@
+images {
+  image: "/assets/background.png"
+}
+images {
+  image: "/assets/images/Blue.png"
+}
+images {
+  image: "/assets/images/Green.png"
+}
+images {
+  image: "/assets/images/Orange.png"
+}
+images {
+  image: "/assets/images/Purple.png"
+}
+images {
+  image: "/assets/images/Red.png"
+}
+images {
+  image: "/assets/images/cursorImg.png"
+}
+images {
+  image: "/assets/images/wheel.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
